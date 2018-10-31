@@ -16,7 +16,7 @@
 <div class="container">
   <h1>학생목록</h1>
   <div class="pull-right mb5">
-  <a href="create.do" class="btn btn-info">
+  <a href="create" class="btn btn-info">
     <span class="glyphicon glyphicon-user"></span> 학생등록</a>
   </div>    
   <table class="table table-bordered mt5">

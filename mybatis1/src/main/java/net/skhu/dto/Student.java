@@ -1,6 +1,13 @@
 package net.skhu.dto;
 
-public class Student {
+import java.io.Serializable;
+import java.util.Date;
+
+//데이터를 객체에 담기 위해서 Serializable인터페이스 implements
+public class Student implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	//버전 번호 >> 객체의 멤버 변수 목록이 수정될 때마다 번호 1씩 증가.
 	
 	int id;
 	String studentNumber;
@@ -8,6 +15,8 @@ public class Student {
 	int departmentId;
 	int year;
 	String departmentName;
+	Date time;
+	
 	public int getId() {
 		return id;
 	}
@@ -43,6 +52,12 @@ public class Student {
 	}
 	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
+	}
+	public Date getTime() {
+		return time;
+	}
+	public void setTime(Date time) {
+		this.time = time;
 	}
 	
 	
