@@ -10,8 +10,11 @@ import net.skhu.dto.Student;
 public interface StudentMapper {
 	   public Student findOne(int id);
 	   public Student findByStudentNumber(String studentNumber);
+	   public List<Student> findAllWithDepartment();
+	   public List<Student> findByDepartmentId(int departmentId);
 	   public List<Student> findAll();
 	   public void insert(Student student);
 	   public void update(Student student);
 	   public void delete(int id);
+	   
 }

@@ -5,11 +5,26 @@
  
   <select id="findAll" resultType="Department"> 
 	<!-- department table의 모든 컬럼 + 이 쿼리문을 조회한 시각 출력 -->
- 	select *, NOW() time from department;
- 	
+ 	select *, NOW() time from department;	
   </select>
  	
- 	<update id="update">
- 		update department set departmentName=#{departmentName} where id=#{id};
- 	</update>
+ <select id="findAllWithStudents" resultMap="resultMap1">
+	select d.*, s.id studentId, s.studentNumber, s.name, s.year
+ 	from department d left join student s on d.id = s.departmentId
+  </select>
+ 	
+ <resultMap id="resultMap1" type="Department">
+ 	<id property="id" column="id"/>
+ 	<result property="departmentName" column="departmentName"/>
+ 	<collection property="students" ofType="Student">
+ 		<id property="id" column="studentId"/>
+ 		<result property="studentNumber" column="StudentNumber"/>
+ 		<result property="name" column="name"/>
+ 		<result property="year" column="year"/>
+ 	</collection>
+ </resultMap>	
+ 	
+  <update id="update">
+ 	update department set departmentName=#{departmentName} where id=#{id};
+ </update>
  </mapper>

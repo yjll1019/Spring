@@ -9,6 +9,9 @@
 
 <a href="student/list">student/list</a> <br />
 <a href="mybatis/cacheTest">mybatis/cacheTest</a> <br />
-
+<a href="mybatis/departmentList1">mybatis/departmentList1</a><br/>
+<a href="mybatis/departmentList2">mybatis/departmentList2</a><br/>
+<a href="mybatis/studentList1">mybatis/studentList1</a><br/>
+<a href="mybatis/dynamicSQL">mybatis/dynamicSQL</a> <br />
 </body>
 </html>

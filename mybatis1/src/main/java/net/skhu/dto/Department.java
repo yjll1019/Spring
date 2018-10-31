@@ -2,6 +2,7 @@ package net.skhu.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 //캐시에 저장할 객체이기 때문에 Serializable인터페이스 implements
 public class Department implements Serializable{
@@ -10,6 +11,7 @@ public class Department implements Serializable{
 	int id;
     String departmentName;
     Date time;
+    List<Student> students; //해당 학과에 소속되는 학생리스트를 저장하는 변수.
     
     public int getId() {
         return id;
@@ -33,6 +35,14 @@ public class Department implements Serializable{
 
 	public void setTime(Date time) {
 		this.time = time;
+	}
+
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
 	}
     
     

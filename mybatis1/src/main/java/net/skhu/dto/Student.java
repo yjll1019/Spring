@@ -16,6 +16,7 @@ public class Student implements Serializable{
 	int year;
 	String departmentName;
 	Date time;
+	Department department;
 	
 	public int getId() {
 		return id;
@@ -58,6 +59,12 @@ public class Student implements Serializable{
 	}
 	public void setTime(Date time) {
 		this.time = time;
+	}
+	public Department getDepartment() {
+		return department;
+	}
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 	
 	
