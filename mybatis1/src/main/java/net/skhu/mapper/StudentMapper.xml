@@ -55,10 +55,18 @@
     WHERE id = #{id}
   </update>
 
+ 
   <delete id="delete">
     DELETE FROM Student WHERE id = #{id}
   </delete>
-
-
-
+ 
+ 
+ <!-- 트랜잭션을 이용한 delete
+	<delete id="delete">
+	start transaction;
+    delete from register where studentId = #{id};
+    delete from student where id = #{id};
+    commit;
+	</delete>
+ -->
 </mapper>

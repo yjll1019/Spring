@@ -2,6 +2,7 @@ package net.skhu.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ public class MybatisController {
 	@Autowired StudentMapper studentMapper;
 	@Autowired UserMapper userMapper;
 	
+	//cache 예제
 	@RequestMapping(value="cacheTest", method=RequestMethod.GET)
 	public String cacheTest(Model model) {
 		System.out.println("get");
@@ -40,6 +42,7 @@ public class MybatisController {
 		return "redirect:cacheTest";
 	}
 	
+	//resultMap 예제
 	@RequestMapping("departmentList1")
 	public String departmentList1(Model model) {
 		List<Department> departments = departmentMapper.findAll();
@@ -63,6 +66,7 @@ public class MybatisController {
 		return "mybatis/studentList1";
 	}
 	
+	//dynamic
 	@RequestMapping("dynamicSQL")
 	public String dynamicSQL(Model model) {
 		List<User> list1 = userMapper.findAllOrderBy(5, "name DESC");
@@ -92,4 +96,5 @@ public class MybatisController {
 		
 		return "mybatis/dynamicSQL";
 	}
+	
 }
