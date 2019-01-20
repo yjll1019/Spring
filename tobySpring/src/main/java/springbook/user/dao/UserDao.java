@@ -6,10 +6,17 @@ import java.sql.*;
 
 public class UserDao {
 
-    public void add(User user) throws ClassNotFoundException, SQLException{
+    //add(), get()메소드에 중복되어있는 코드 추출.
+
+    private Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
 
         Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/springbook?useSSL=false", "root", "test123");
+        return c;
+    }
+
+    public void add(User user) throws ClassNotFoundException, SQLException{
+        Connection c = getConnection();
 
         PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values(?,?,?)");
 
@@ -25,9 +32,7 @@ public class UserDao {
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException{
-        Class.forName("com.mysql.jdbc.Driver");
-
-        Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/springbook?useSSL=false", "root", "test123");
+        Connection c = getConnection();
 
         PreparedStatement ps = c.prepareStatement("select * from users where id = ?");
         ps.setString(1, id);

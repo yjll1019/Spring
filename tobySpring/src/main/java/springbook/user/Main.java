@@ -11,7 +11,7 @@ public class Main {
         UserDao dao = new UserDao();
 
         User user = new User();
-        user.setId("tiber");
+        user.setId("leeyeji");
         user.setName("이예지");
         user.setPassword("123");
 
@@ -19,7 +19,7 @@ public class Main {
 
         System.out.println(user.getId()+"등록 성공!");
 
-        User user2 = dao.get("yeji");
+        User user2 = dao.get("leeyeji");
         System.out.println(user2.getName());
         System.out.println(user2.getPassword());
         System.out.println(user2.getId()+"조회 성공");
