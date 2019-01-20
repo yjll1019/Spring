@@ -4,16 +4,10 @@ import springbook.user.domain.User;
 
 import java.sql.*;
 
-public class UserDao {
+public abstract class UserDao {
 
-    //add(), get()메소드에 중복되어있는 코드 추출.
-
-    private Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
-
-        Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/springbook?useSSL=false", "root", "test123");
-        return c;
-    }
+    //추상 메소드로 변경 -> 서브 클래스에서 메소드 구현(상속을 통한 확장)
+    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
 
     public void add(User user) throws ClassNotFoundException, SQLException{
         Connection c = getConnection();
